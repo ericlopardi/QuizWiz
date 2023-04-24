@@ -2,6 +2,9 @@
  * @author - Josh Shelley (mzk160)
  *
  * This class represents an InquiryBank object in the QuizWiz trivia game
+ *
+ *
+ * THIS CLASS MAY BE DEPRECATED!!
  */
 
 package edu.utsa.cs3443.quizwiz.model;
