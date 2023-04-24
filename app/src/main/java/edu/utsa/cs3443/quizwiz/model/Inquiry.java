@@ -7,18 +7,18 @@
 package edu.utsa.cs3443.quizwiz.model;
 
 public class Inquiry {
-    String inquiryString, firstAnsChoice, secondAnsChoice, thirdAnsChoice, fourthAnsChoice, rightAnsChoice, userAnsChoice;
-    int picResID;
+    String inquiryString, firstAnsChoice, secondAnsChoice, thirdAnsChoice, fourthAnsChoice;
+    int picResID, rightAnsChoice, userAnsChoice;
 
-    public Inquiry(String insertInquiryString, String insertFirstAnswerChoice, String insertSecondAnswerChoice, String insertThirdAnswerChoice, String insertFourthAnswerChoice, String insertRightAnsChoice, String insertUserAnsChoice, int insertPicResID) {
+    public Inquiry(String insertInquiryString, String insertFirstAnswerChoice, String insertSecondAnswerChoice, String insertThirdAnswerChoice, String insertFourthAnswerChoice, int insertRightAnsChoice) {
         this.inquiryString = insertInquiryString;
         this.firstAnsChoice = insertFirstAnswerChoice;
         this.secondAnsChoice = insertSecondAnswerChoice;
         this.thirdAnsChoice = insertThirdAnswerChoice;
         this.fourthAnsChoice = insertFourthAnswerChoice;
         this.rightAnsChoice = insertRightAnsChoice;
-        this.userAnsChoice = insertUserAnsChoice;
-        this.picResID = insertPicResID;
+        this.picResID = 0;
+        this.userAnsChoice = -1;
     }
 
     public String getInquiryString() {
@@ -61,19 +61,19 @@ public class Inquiry {
         this.fourthAnsChoice = fourthAnsChoice;
     }
 
-    public String getRightAnsChoice() {
+    public int getRightAnsChoice() {
         return rightAnsChoice;
     }
 
-    public void setRightAnsChoice(String rightAnsChoice) {
+    public void setRightAnsChoice(int rightAnsChoice) {
         this.rightAnsChoice = rightAnsChoice;
     }
 
-    public String getUserAnsChoice() {
+    public int getUserAnsChoice() {
         return userAnsChoice;
     }
 
-    public void setUserAnsChoice(String userAnsChoice) {
+    public void setUserAnsChoice(int userAnsChoice) {
         this.userAnsChoice = userAnsChoice;
     }
 

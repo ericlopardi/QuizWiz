@@ -1,4 +1,10 @@
 package edu.utsa.cs3443.quizwiz.controller;
 
-public class SubmitButtonController {
+import android.view.View;
+
+public class SubmitButtonController implements View.OnClickListener {
+    @Override
+    public void onClick(View v) {
+
+    }
 }
