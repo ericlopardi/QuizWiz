@@ -183,26 +183,6 @@ public class GameScreenActivity extends AppCompatActivity {
         ArrayList<Integer> resIDs = new ArrayList<>();
         // insert resource IDs for all photos associated with questions, make sure your photos are added in the same order
         // that the questions are listed in the CSV file.
-        resIDs.add(R.drawable.marathon);
-        resIDs.add(R.drawable.nbalogo);
-        resIDs.add(R.drawable.buffalobills);
-        resIDs.add(R.drawable.homerun);
-        resIDs.add(R.drawable.stanleycup);
-        resIDs.add(R.drawable.timduncan);
-        resIDs.add(R.drawable.golfholes);
-        resIDs.add(R.drawable.football);
-        resIDs.add(R.drawable.tennisball);
-        resIDs.add(R.drawable.usainbolt);
-        resIDs.add(R.drawable.tombrady);
-        resIDs.add(R.drawable.jockey);
-        resIDs.add(R.drawable.strike);
-        resIDs.add(R.drawable.lebronjames);
-        resIDs.add(R.drawable.soccergoal);
-        resIDs.add(R.drawable.noball);
-        resIDs.add(R.drawable.boxing);
-        resIDs.add(R.drawable.medals);
-        resIDs.add(R.drawable.touchdown);
-        resIDs.add(R.drawable.baseballbases);
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
         String curLine;
         int idx = 0;
@@ -225,6 +205,26 @@ public class GameScreenActivity extends AppCompatActivity {
         ArrayList<Integer> resIDs = new ArrayList<>();
         // insert resource IDs for all photos associated with questions, make sure your photos are added in the same order
         // that the questions are listed in the CSV file.
+        resIDs.add(R.drawable.marathon);
+        resIDs.add(R.drawable.nbalogo);
+        resIDs.add(R.drawable.buffalobills);
+        resIDs.add(R.drawable.homerun);
+        resIDs.add(R.drawable.stanleycup);
+        resIDs.add(R.drawable.timduncan);
+        resIDs.add(R.drawable.golfholes);
+        resIDs.add(R.drawable.football);
+        resIDs.add(R.drawable.tennisball);
+        resIDs.add(R.drawable.usainbolt);
+        resIDs.add(R.drawable.tombrady);
+        resIDs.add(R.drawable.jockey);
+        resIDs.add(R.drawable.strike);
+        resIDs.add(R.drawable.lebronjames);
+        resIDs.add(R.drawable.soccergoal);
+        resIDs.add(R.drawable.noball);
+        resIDs.add(R.drawable.boxing);
+        resIDs.add(R.drawable.medals);
+        resIDs.add(R.drawable.touchdown);
+        resIDs.add(R.drawable.baseballbases);
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
         String curLine;
         int idx = 0;
