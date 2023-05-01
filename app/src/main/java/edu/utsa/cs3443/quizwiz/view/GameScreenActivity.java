@@ -1,3 +1,9 @@
+/**
+ * @author - Josh Shelley (mzk160)
+ *
+ * this class represents the Activity screen for the game, this class also implements the controllers using anonymous classes.
+ */
+
 package edu.utsa.cs3443.quizwiz.view;
 
 import androidx.appcompat.app.AlertDialog;
@@ -33,13 +39,16 @@ public class GameScreenActivity extends AppCompatActivity {
     final int maxInquiriesPerRound = 5;
     ArrayList<Inquiry> bank;
 
+    /**
+     *
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.drawable.wizardlogo);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
-        getSupportActionBar().setElevation(0);
         setContentView(R.layout.activity_game_screen);
 
         ivInquiry = findViewById(R.id.inquiryImageView);
@@ -51,12 +60,9 @@ public class GameScreenActivity extends AppCompatActivity {
         btnAnswer3 = findViewById(R.id.answer3Btn);
         btnSubmit = findViewById(R.id.submitBtn);
 
-//        btnAnswer0.setOnClickListener(new AnswerButtonController());
-//        btnAnswer1.setOnClickListener(new AnswerButtonController());
-//        btnAnswer2.setOnClickListener(new AnswerButtonController());
-//        btnAnswer3.setOnClickListener(new AnswerButtonController());
-//        btnSubmit.setOnClickListener(new SubmitButtonController());
-
+        /**
+         * Controller implementations for GameScreenActivity
+         */
         btnAnswer0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +100,9 @@ public class GameScreenActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * @param insertInquiry - Inquiry object to be inserted into function to generate/show the current inquiry
+     */
     public void showInquiry(Inquiry insertInquiry) {
         ivInquiry.setImageResource(getCurInquiry().getPicResID());
         tvInquiry.setText(getCurInquiry().getInquiryString());
@@ -103,14 +112,20 @@ public class GameScreenActivity extends AppCompatActivity {
         btnAnswer3.setText(getCurInquiry().getFourthAnsChoice());
     }
 
+    /**
+     * @param insertInquiriesRemaining - Integer representing the amount of inquiries left in the quiz
+     */
     public void showInquiriesRemaining(int insertInquiriesRemaining) {
         tvInquiriesLeft.setText(String.valueOf(insertInquiriesRemaining));
     }
 
+    /**
+     * load function for Entertainment quiz
+     * @throws IOException
+     */
     public void loadEntertainment() throws IOException {
         AssetManager am = getAssets();
         InputStream is = am.open("entertainment.csv");
-        // added the picture IDs in the order that the CSV file will be read/parsed so that the picture IDs would be set for the correct question
         bank = new ArrayList<>();
         ArrayList<Integer> resIDs = new ArrayList<>();
         resIDs.add(R.drawable.grinch);
@@ -136,6 +151,10 @@ public class GameScreenActivity extends AppCompatActivity {
         br.close();
     }
 
+    /**
+     * load function for History quiz
+     * @throws IOException
+     */
     public void loadHistory() throws IOException {
         AssetManager am = getAssets();
         InputStream is = am.open("history.csv");
@@ -167,8 +186,6 @@ public class GameScreenActivity extends AppCompatActivity {
         while((curLine = br.readLine()) != null) {
             String[] questionInfo = curLine.split(",");
             Inquiry newInquiry = new Inquiry(questionInfo[0], questionInfo[1], questionInfo[2], questionInfo[3], questionInfo[4], Integer.parseInt(questionInfo[5]));
-            // TODO: personal note - line below could potentially cause issues, test thoroughly because "get" function in ArrayList class
-            //  is supposed to return an object, and we are passing an object to a function that is supposed to accept an int.
             newInquiry.setPicResID(resIDs.get(idx));
             idx++;
             bank.add(newInquiry);
@@ -176,6 +193,10 @@ public class GameScreenActivity extends AppCompatActivity {
         br.close();
     }
 
+    /**
+     * load function for Science quiz
+     * @throws IOException
+     */
     public void loadScience() throws IOException {
         AssetManager am = getAssets();
         InputStream is = am.open("science.csv");
@@ -189,8 +210,6 @@ public class GameScreenActivity extends AppCompatActivity {
         while((curLine = br.readLine()) != null) {
             String[] questionInfo = curLine.split(",");
             Inquiry newInquiry = new Inquiry(questionInfo[0], questionInfo[1], questionInfo[2], questionInfo[3], questionInfo[4], Integer.parseInt(questionInfo[5]));
-            // TODO: personal note - line below could potentially cause issues, test thoroughly because "get" function in ArrayList class
-            //  is supposed to return an object, and we are passing an object to a function that is supposed to accept an int.
             newInquiry.setPicResID(resIDs.get(idx));
             idx++;
             bank.add(newInquiry);
@@ -198,13 +217,15 @@ public class GameScreenActivity extends AppCompatActivity {
         br.close();
     }
 
+    /**
+     * laod function for Sports quiz
+     * @throws IOException
+     */
     public void loadSports() throws IOException {
         AssetManager am = getAssets();
         InputStream is = am.open("sports.csv");
         bank = new ArrayList<>();
         ArrayList<Integer> resIDs = new ArrayList<>();
-        // insert resource IDs for all photos associated with questions, make sure your photos are added in the same order
-        // that the questions are listed in the CSV file.
         resIDs.add(R.drawable.marathon);
         resIDs.add(R.drawable.nbalogo);
         resIDs.add(R.drawable.buffalobills);
@@ -238,6 +259,10 @@ public class GameScreenActivity extends AppCompatActivity {
         br.close();
     }
 
+    /**
+     * functionality for starting a new quiz
+     * @throws IOException
+     */
     public void launchQuiz() throws IOException {
         Intent intent = getIntent();
         if(Objects.equals(intent.getStringExtra("Entertainment"), "entertainment")) {
@@ -263,22 +288,39 @@ public class GameScreenActivity extends AppCompatActivity {
         showInquiry(leadInquiry);
     }
 
+    /**
+     * functionality for generating a new Inquiry
+     * @return - Inquiry object
+     */
     public Inquiry newInquiry() {
         int newInquiryIdx = createRandNum(bank.size());
         curInquiry = newInquiryIdx;
         return bank.get(curInquiry);
     }
 
+    /**
+     * functionality for getting the current Inquiry
+     * @return - Inquiry object
+     */
     public Inquiry getCurInquiry() {
         return bank.get(curInquiryIdx);
     }
 
+    /**
+     * functionality for generating a random number, helper method for other methods in the app
+     * @param insertMax - max possible number to generate between 0 - insertMax
+     * @return - int representing the random number generated
+     */
     public int createRandNum(int insertMax) {
         double randNum = Math.random();
         double retVal = randNum * insertMax;
         return (int) retVal;
     }
 
+    /**
+     * functionality for button presses
+     * @param insertAnswerSelected - int representing the answer choice selected
+     */
     public void answerSelected(int insertAnswerSelected) {
         Inquiry curInquiry = getCurInquiry();
         curInquiry.setUserAnsChoice(insertAnswerSelected);
@@ -304,6 +346,9 @@ public class GameScreenActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * functionality for user answer submissions
+     */
     public void answerSubmission() {
         Inquiry curInquiry = getCurInquiry();
         if(curInquiry.isCorrect()) {
@@ -343,6 +388,12 @@ public class GameScreenActivity extends AppCompatActivity {
 //        endGameResult.create().show();
 //    }
 
+    /**
+     * functionality for presenting end game results
+     * @param insertTotalCorrect - total inquiries correct by user
+     * @param insertTotalInquiries - total inquiries presented in the concluding round
+     * @return - String representing to the user how many inquiries the user answered correct
+     */
     public static String gameResults(int insertTotalCorrect, int insertTotalInquiries) {
         return "You answered " + insertTotalCorrect + " out of " + insertTotalInquiries + " correct!";
     }
