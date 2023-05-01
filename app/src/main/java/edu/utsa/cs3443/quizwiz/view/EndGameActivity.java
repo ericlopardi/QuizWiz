@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 import edu.utsa.cs3443.quizwiz.R;
 
 public class EndGameActivity extends AppCompatActivity {
@@ -33,6 +35,38 @@ public class EndGameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EndGameActivity.this, GameScreenActivity.class);
+                String message = "NULL";
+                System.out.println(intent.getStringExtra("Entertainment"));
+                System.out.println(intent.getStringExtra("Science"));
+                System.out.println(intent.getStringExtra("History"));
+                System.out.println(intent.getStringExtra("Sports"));
+                if(Objects.equals(intent.getStringExtra("Entertainment"), "entertainment")) {
+                    message = "entertainment";
+                } else if(Objects.equals(intent.getStringExtra("Science"), "science")) {
+                    message = "science";
+                } else if(Objects.equals(intent.getStringExtra("History"), "history")) {
+                    message = "history";
+                } else if(Objects.equals(intent.getStringExtra("Sports"), "sports")) {
+                    message = "sports";
+                } else {
+                    System.out.println("ERROR: Could not load any games, possible error with retrieving intents or comparing intent strings");
+                }
+
+                switch(message){
+                    case "entertainment":
+                        intent.putExtra("Entertainment", "entertainment");
+                        break;
+                    case "sports":
+                        intent.putExtra("Sports", "sports");
+                        break;
+                    case "history":
+                        intent.putExtra("History", "history");
+                        break;
+                    case "science":
+                        intent.putExtra("Science", "science");
+                        break;
+                }
+                System.out.println(message);
                 startActivity(intent);
             }
         });

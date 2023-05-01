@@ -90,7 +90,20 @@ public class GameScreenActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                answerSubmission();
+                String message = "NULL";
+                Intent intent = getIntent();
+                if(Objects.equals(intent.getStringExtra("Entertainment"), "entertainment")) {
+                    message = "entertainment";
+                } else if(Objects.equals(intent.getStringExtra("Science"), "science")) {
+                    message = "science";
+                } else if(Objects.equals(intent.getStringExtra("History"), "history")) {
+                    message = "history";
+                } else if(Objects.equals(intent.getStringExtra("Sports"), "sports")) {
+                    message = "sports";
+                } else {
+                    System.out.println("ERROR: Could not load any games, possible error with retrieving intents or comparing intent strings");
+                }
+                answerSubmission(message);
             }
         });
         try {
@@ -275,6 +288,7 @@ public class GameScreenActivity extends AppCompatActivity {
             loadSports();
         } else {
             System.out.println("ERROR: Could not load any games, possible error with retrieving intents or comparing intent strings");
+
         }
 
         while(bank.size() > maxInquiriesPerRound) {
@@ -349,7 +363,8 @@ public class GameScreenActivity extends AppCompatActivity {
     /**
      * functionality for user answer submissions
      */
-    public void answerSubmission() {
+    public void answerSubmission(String genre) {
+        System.out.println(genre);
         Inquiry curInquiry = getCurInquiry();
         if(curInquiry.isCorrect()) {
             totalCorrect++;
@@ -359,6 +374,20 @@ public class GameScreenActivity extends AppCompatActivity {
         if(bank.size() == 0) {
             //showGameResultDialog();
             Intent intent = new Intent(GameScreenActivity.this, EndGameActivity.class);
+            switch(genre){
+                case "entertainment":
+                    intent.putExtra("Entertainment", "entertainment");
+                    break;
+                case "sports":
+                    intent.putExtra("Sports", "sports");
+                    break;
+                case "history":
+                    intent.putExtra("History", "history");
+                    break;
+                case "science":
+                    intent.putExtra("Science", "science");
+                    break;
+            }
             startActivity(intent);
         } else {
             newInquiry();
