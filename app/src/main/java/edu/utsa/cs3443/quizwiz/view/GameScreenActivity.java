@@ -33,6 +33,8 @@ public class GameScreenActivity extends AppCompatActivity {
     final int maxInquiriesPerRound = 5;
     ArrayList<Inquiry> bank;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -181,8 +183,26 @@ public class GameScreenActivity extends AppCompatActivity {
         InputStream is = am.open("science.csv");
         bank = new ArrayList<>();
         ArrayList<Integer> resIDs = new ArrayList<>();
-        // insert resource IDs for all photos associated with questions, make sure your photos are added in the same order
-        // that the questions are listed in the CSV file.
+        resIDs.add(R.drawable.oop);
+        resIDs.add(R.drawable.rainbow);
+        resIDs.add(R.drawable.solarsystem);
+        resIDs.add(R.drawable.fossils);
+        resIDs.add(R.drawable.mammal);
+        resIDs.add(R.drawable.iron);
+        resIDs.add(R.drawable.plants);
+        resIDs.add(R.drawable.virus);
+        resIDs.add(R.drawable.water);
+        resIDs.add(R.drawable.atom);
+        resIDs.add(R.drawable.cells);
+        resIDs.add(R.drawable.brain);
+        resIDs.add(R.drawable.infrared);
+        resIDs.add(R.drawable.organs);
+        resIDs.add(R.drawable.webpages);
+        resIDs.add(R.drawable.sublimation);
+        resIDs.add(R.drawable.energy);
+        resIDs.add(R.drawable.calorie);
+        resIDs.add(R.drawable.devices);
+        resIDs.add(R.drawable.os);
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
         String curLine;
         int idx = 0;
@@ -346,4 +366,5 @@ public class GameScreenActivity extends AppCompatActivity {
     public static String gameResults(int insertTotalCorrect, int insertTotalInquiries) {
         return "You answered " + insertTotalCorrect + " out of " + insertTotalInquiries + " correct!";
     }
+
 }

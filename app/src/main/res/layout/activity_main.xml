@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/darkTan"
+    android:background="@drawable/background"
     tools:context=".view.MainActivity">
 
     <androidx.cardview.widget.CardView
@@ -39,17 +39,18 @@
         android:paddingTop="5dp"
         android:paddingBottom="20dp"
         android:text="@string/app_name"
-        android:textColor="@color/teal_700"
+        android:textColor="@color/white"
         android:textSize="50sp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/sportsbtn"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="#3F51B5"
         android:text="Sports"
         android:textColor="@color/white"
         android:textSize="25dp" />
@@ -60,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="#3F51B5"
         android:text="Entertainment"
         android:textColor="@color/white"
         android:textSize="25dp" />
@@ -71,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="#3F51B5"
         android:text="History"
         android:textColor="@color/white"
         android:textSize="25dp" />
@@ -82,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="#3F51B5"
         android:text="Science"
         android:textColor="@color/white"
         android:textSize="25dp" />

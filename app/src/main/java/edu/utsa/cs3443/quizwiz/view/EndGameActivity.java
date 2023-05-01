@@ -28,6 +28,7 @@ public class EndGameActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         btnRestart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
