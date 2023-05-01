@@ -34,19 +34,20 @@ public class EndGameActivity extends AppCompatActivity {
         btnRestart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = getIntent();
                 Intent intent = new Intent(EndGameActivity.this, GameScreenActivity.class);
                 String message = "NULL";
-                System.out.println(intent.getStringExtra("Entertainment"));
-                System.out.println(intent.getStringExtra("Science"));
-                System.out.println(intent.getStringExtra("History"));
-                System.out.println(intent.getStringExtra("Sports"));
-                if(Objects.equals(intent.getStringExtra("Entertainment"), "entertainment")) {
+                System.out.println(i.getStringExtra("Entertainment"));
+                System.out.println(i.getStringExtra("Science"));
+                System.out.println(i.getStringExtra("History"));
+                System.out.println(i.getStringExtra("Sports"));
+                if(Objects.equals(i.getStringExtra("Entertainment"), "entertainment")) {
                     message = "entertainment";
-                } else if(Objects.equals(intent.getStringExtra("Science"), "science")) {
+                } else if(Objects.equals(i.getStringExtra("Science"), "science")) {
                     message = "science";
-                } else if(Objects.equals(intent.getStringExtra("History"), "history")) {
+                } else if(Objects.equals(i.getStringExtra("History"), "history")) {
                     message = "history";
-                } else if(Objects.equals(intent.getStringExtra("Sports"), "sports")) {
+                } else if(Objects.equals(i.getStringExtra("Sports"), "sports")) {
                     message = "sports";
                 } else {
                     System.out.println("ERROR: Could not load any games, possible error with retrieving intents or comparing intent strings");

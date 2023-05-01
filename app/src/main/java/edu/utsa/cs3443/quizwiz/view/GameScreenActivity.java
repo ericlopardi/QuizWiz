@@ -92,6 +92,10 @@ public class GameScreenActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String message = "NULL";
                 Intent intent = getIntent();
+                System.out.println(intent.getStringExtra("Entertainment"));
+                System.out.println(intent.getStringExtra("Science"));
+                System.out.println(intent.getStringExtra("History"));
+                System.out.println(intent.getStringExtra("Sports"));
                 if(Objects.equals(intent.getStringExtra("Entertainment"), "entertainment")) {
                     message = "entertainment";
                 } else if(Objects.equals(intent.getStringExtra("Science"), "science")) {
@@ -215,8 +219,6 @@ public class GameScreenActivity extends AppCompatActivity {
         InputStream is = am.open("science.csv");
         bank = new ArrayList<>();
         ArrayList<Integer> resIDs = new ArrayList<>();
-        // insert resource IDs for all photos associated with questions, make sure your photos are added in the same order
-        // that the questions are listed in the CSV file.
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
         String curLine;
         int idx = 0;
@@ -278,6 +280,7 @@ public class GameScreenActivity extends AppCompatActivity {
      */
     public void launchQuiz() throws IOException {
         Intent intent = getIntent();
+
         if(Objects.equals(intent.getStringExtra("Entertainment"), "entertainment")) {
             loadEntertainment();
         } else if(Objects.equals(intent.getStringExtra("Science"), "science")) {
@@ -380,6 +383,7 @@ public class GameScreenActivity extends AppCompatActivity {
                     break;
                 case "sports":
                     intent.putExtra("Sports", "sports");
+                    System.out.println("Sports is wok=rkinh");
                     break;
                 case "history":
                     intent.putExtra("History", "history");
@@ -420,8 +424,8 @@ public class GameScreenActivity extends AppCompatActivity {
     /**
      * functionality for presenting end game results
      * @param insertTotalCorrect - total inquiries correct by user
-     * @param insertTotalInquiries - total inquiries presented in the concluding round
-     * @return - String representing to the user how many inquiries the user answered correct
+     * @param insertTotalInquiries - total inquiries presented in concluding round
+     * @return - String representing the end game results
      */
     public static String gameResults(int insertTotalCorrect, int insertTotalInquiries) {
         return "You answered " + insertTotalCorrect + " out of " + insertTotalInquiries + " correct!";
