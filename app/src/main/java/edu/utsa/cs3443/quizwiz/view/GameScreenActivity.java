@@ -90,7 +90,24 @@ public class GameScreenActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                answerSubmission();
+                String message = "NULL";
+                Intent intent = getIntent();
+                System.out.println(intent.getStringExtra("Entertainment"));
+                System.out.println(intent.getStringExtra("Science"));
+                System.out.println(intent.getStringExtra("History"));
+                System.out.println(intent.getStringExtra("Sports"));
+                if(Objects.equals(intent.getStringExtra("Entertainment"), "entertainment")) {
+                    message = "entertainment";
+                } else if(Objects.equals(intent.getStringExtra("Science"), "science")) {
+                    message = "science";
+                } else if(Objects.equals(intent.getStringExtra("History"), "history")) {
+                    message = "history";
+                } else if(Objects.equals(intent.getStringExtra("Sports"), "sports")) {
+                    message = "sports";
+                } else {
+                    System.out.println("ERROR: Could not load any games, possible error with retrieving intents or comparing intent strings");
+                }
+                answerSubmission(message);
             }
         });
         try {
@@ -202,29 +219,6 @@ public class GameScreenActivity extends AppCompatActivity {
         InputStream is = am.open("science.csv");
         bank = new ArrayList<>();
         ArrayList<Integer> resIDs = new ArrayList<>();
-        // insert resource IDs for all photos associated with questions, make sure your photos are added in the same order
-        // that the questions are listed in the CSV file.
-        resIDs.add(R.drawable.oop);
-        resIDs.add(R.drawable.rainbow);
-        resIDs.add(R.drawable.solarsystem);
-        resIDs.add(R.drawable.fossils);
-        resIDs.add(R.drawable.mammal);
-        resIDs.add(R.drawable.iron);
-        resIDs.add(R.drawable.plants);
-        resIDs.add(R.drawable.virus);
-        resIDs.add(R.drawable.water);
-        resIDs.add(R.drawable.atom);
-        resIDs.add(R.drawable.cells);
-        resIDs.add(R.drawable.brain);
-        resIDs.add(R.drawable.infrared);
-        resIDs.add(R.drawable.organs);
-        resIDs.add(R.drawable.webpages);
-        resIDs.add(R.drawable.sublimation);
-        resIDs.add(R.drawable.energy);
-        resIDs.add(R.drawable.calorie);
-        resIDs.add(R.drawable.devices);
-        resIDs.add(R.drawable.os);
-
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
         String curLine;
         int idx = 0;
@@ -286,6 +280,7 @@ public class GameScreenActivity extends AppCompatActivity {
      */
     public void launchQuiz() throws IOException {
         Intent intent = getIntent();
+
         if(Objects.equals(intent.getStringExtra("Entertainment"), "entertainment")) {
             loadEntertainment();
         } else if(Objects.equals(intent.getStringExtra("Science"), "science")) {
@@ -296,6 +291,7 @@ public class GameScreenActivity extends AppCompatActivity {
             loadSports();
         } else {
             System.out.println("ERROR: Could not load any games, possible error with retrieving intents or comparing intent strings");
+
         }
 
         while(bank.size() > maxInquiriesPerRound) {
@@ -370,7 +366,8 @@ public class GameScreenActivity extends AppCompatActivity {
     /**
      * functionality for user answer submissions
      */
-    public void answerSubmission() {
+    public void answerSubmission(String genre) {
+        System.out.println(genre);
         Inquiry curInquiry = getCurInquiry();
         if(curInquiry.isCorrect()) {
             totalCorrect++;
@@ -380,6 +377,21 @@ public class GameScreenActivity extends AppCompatActivity {
         if(bank.size() == 0) {
             //showGameResultDialog();
             Intent intent = new Intent(GameScreenActivity.this, EndGameActivity.class);
+            switch(genre){
+                case "entertainment":
+                    intent.putExtra("Entertainment", "entertainment");
+                    break;
+                case "sports":
+                    intent.putExtra("Sports", "sports");
+                    System.out.println("Sports is wok=rkinh");
+                    break;
+                case "history":
+                    intent.putExtra("History", "history");
+                    break;
+                case "science":
+                    intent.putExtra("Science", "science");
+                    break;
+            }
             startActivity(intent);
         } else {
             newInquiry();
@@ -412,8 +424,8 @@ public class GameScreenActivity extends AppCompatActivity {
     /**
      * functionality for presenting end game results
      * @param insertTotalCorrect - total inquiries correct by user
-     * @param insertTotalInquiries - total inquiries presented in the concluding round
-     * @return - String representing to the user how many inquiries the user answered correct
+     * @param insertTotalInquiries - total inquiries presented in concluding round
+     * @return - String representing the end game results
      */
     public static String gameResults(int insertTotalCorrect, int insertTotalInquiries) {
         return "You answered " + insertTotalCorrect + " out of " + insertTotalInquiries + " correct!";
