@@ -21,9 +21,6 @@
         <activity
             android:name=".view.EndGameActivity"
             android:exported="false" />
-        <!-- <activity -->
-        <!-- android:name=".view.MainActivity" -->
-        <!-- android:exported="false" /> -->
         <activity
             android:name=".view.MainActivity"
             android:exported="true"
