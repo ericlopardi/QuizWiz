@@ -60,11 +60,12 @@
         android:paddingRight="30dp" />
 
     <Button
+        android:id="@+id/btnTutoMainMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Main Menu"
         android:layout_gravity="center"
-        android:id="@+id/btnTutoMainMenu"
-        android:layout_marginTop="25dp"/>
+        android:layout_marginTop="25dp"
+        android:backgroundTint="#3F51B5"
+        android:text="Main Menu" />
 
 </LinearLayout>
