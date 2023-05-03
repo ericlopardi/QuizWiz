@@ -1,3 +1,11 @@
+/**
+ * @author - Josh Shelley (mzk160)
+ * @author - Eric Lopardi (eif833)
+ * @author - Ria James (xuv730)
+ * @author - Zachary Sierra (tnb644)
+ * this class represents the Menu screen for the game
+ */
+
 package edu.utsa.cs3443.quizwiz.view;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +18,12 @@ import android.widget.Button;
 import edu.utsa.cs3443.quizwiz.R;
 
 public class MainActivity extends AppCompatActivity {
-
+    /**
+     *
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         Button btnScience = findViewById(R.id.sciencebtn);
         Button btnTutorial = findViewById(R.id.tutorialbtn);
 
+        /**
+         * Control implementations for MainActivity (Anonymous classes)
+         */
         btnSports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
