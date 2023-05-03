@@ -1,5 +1,5 @@
 /**
- * @author - Josh Shelley (mzk160)
+ * @author - Josh Shelley (mzk160), Ria James (xuv730), Eric Lopardi (eif833), Zachary Sierra (tnb644)
  *
  * This class represents an Inquiry object in the QuizWiz trivia game
  */
