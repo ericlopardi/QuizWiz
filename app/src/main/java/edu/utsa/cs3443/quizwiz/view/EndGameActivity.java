@@ -1,19 +1,29 @@
+/**
+ * @author - Josh Shelley (mzk160), Ria James (xuv730), Eric Lopardi (eif833), Zachary Sierra (tnb644)
+ *
+ * this class represents the Activity screen for the end of the game, this class also implements the controllers using anonymous classes.
+ */
+
 package edu.utsa.cs3443.quizwiz.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import java.util.Objects;
-
 import edu.utsa.cs3443.quizwiz.R;
 
 public class EndGameActivity extends AppCompatActivity {
 
+    /**
+     *
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +33,9 @@ public class EndGameActivity extends AppCompatActivity {
         Button btnMainMenu = findViewById(R.id.mainmenubtn);
         Button btnRestart = findViewById(R.id.restartbtn);
 
+        /**
+         * Controller implementations for EndGameActivity (anonymous classes)
+         */
         btnMainMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

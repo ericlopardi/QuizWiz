@@ -1,12 +1,10 @@
 package edu.utsa.cs3443.quizwiz.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import edu.utsa.cs3443.quizwiz.R;
 
 public class MainActivity extends AppCompatActivity {

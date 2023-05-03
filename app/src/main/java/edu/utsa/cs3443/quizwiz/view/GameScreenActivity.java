@@ -1,16 +1,12 @@
 /**
- * @author - Josh Shelley (mzk160)
+ * @author - Josh Shelley (mzk160), Ria James (xuv730), Eric Lopardi (eif833), Zachary Sierra (tnb644)
  *
  * this class represents the Activity screen for the game, this class also implements the controllers using anonymous classes.
  */
 
 package edu.utsa.cs3443.quizwiz.view;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -18,14 +14,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Objects;
-
 import edu.utsa.cs3443.quizwiz.R;
 import edu.utsa.cs3443.quizwiz.model.Inquiry;
 
@@ -418,28 +412,6 @@ public class GameScreenActivity extends AppCompatActivity {
             showInquiry(getCurInquiry());
         }
     }
-
-//    public void showGameResultDialog() {
-//        String result = gameResults(totalCorrect, totalInquiries);
-//        AlertDialog.Builder endGameResult = new AlertDialog.Builder(GameScreenActivity.this);
-//        endGameResult.setCancelable(false);
-//        endGameResult.setTitle("Quiz has concluded!");
-//        endGameResult.setMessage(result);
-//        endGameResult.setPositiveButton("Start another round", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                launchQuiz();
-//            }
-//        });
-//        endGameResult.setNegativeButton("Return to Main Menu", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                Intent intent = new Intent(GameScreenActivity.this, MainActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-//        endGameResult.create().show();
-//    }
 
     /**
      * functionality for presenting end game results
