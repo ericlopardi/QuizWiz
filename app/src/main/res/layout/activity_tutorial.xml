@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context=".view.TutorialActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Menu:"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:paddingTop="30dp"
+        android:paddingLeft="35dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="In the Main Menu, you are presented with 5 buttons, 4 of which will allow you to play a quiz based on the subject selected."
+        android:textSize="17dp"
+        android:paddingLeft="35dp"
+        android:paddingRight="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gameplay:"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:paddingTop="30dp"
+        android:paddingLeft="35dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="During gameplay, each quiz will contain 5 total inquiries per round, and each inquiry will contain 4 potential correct answers. The UI will also present to you how many inquiries are remaining in the current round."
+        android:textSize="17dp"
+        android:paddingLeft="35dp"
+        android:paddingRight="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="End Of Game:"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:paddingTop="30dp"
+        android:paddingLeft="35dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Once the round ends, you will be presented with output that tells you how many inquiries you answered correctly out of the total asked. You will also be presented with two buttons, one that will bring you back to the main menu, and the other one that will allow you to replay the subject with a different mix of questions."
+        android:textSize="17dp"
+        android:paddingLeft="35dp"
+        android:paddingRight="30dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Menu"
+        android:layout_gravity="center"
+        android:id="@+id/btnTutoMainMenu"
+        android:layout_marginTop="25dp"/>
+
+</LinearLayout>

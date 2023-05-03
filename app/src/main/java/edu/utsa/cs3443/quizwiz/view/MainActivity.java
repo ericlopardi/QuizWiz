@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnEntertainment = findViewById(R.id.entertainmentbtn);
         Button btnHistory = findViewById(R.id.historybtn);
         Button btnScience = findViewById(R.id.sciencebtn);
+        Button btnTutorial = findViewById(R.id.tutorialbtn);
 
         btnSports.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, GameScreenActivity.class);
                 intent.putExtra("Science", "science");
+                startActivity(intent);
+            }
+        });
+        btnTutorial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TutorialActivity.class);
                 startActivity(intent);
             }
         });
