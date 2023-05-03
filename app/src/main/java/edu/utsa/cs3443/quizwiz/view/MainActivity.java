@@ -1,8 +1,6 @@
 /**
- * @author - Josh Shelley (mzk160)
- * @author - Eric Lopardi (eif833)
- * @author - Ria James (xuv730)
- * @author - Zachary Sierra (tnb644)
+ * @author - Josh Shelley (mzk160), Ria James (xuv730), Eric Lopardi (eif833), Zachary Sierra (tnb644)
+ *
  * this class represents the Menu screen for the game
  */
 
